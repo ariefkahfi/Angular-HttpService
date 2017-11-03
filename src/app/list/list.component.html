@@ -1,0 +1,104 @@
+<div id="card-container">
+
+  <div class="card" *ngFor="let f of arrOfFruits">
+
+    <div class="pin-update" (click)="openDialogUpdate(f.id)">+</div>
+
+    <img *ngIf="f.name === 'Apple'"  src="http://localhost/angular-http/img/apple.jpg"/>
+    <img src="http://localhost/angular-http/img/orange.jpg" *ngIf="f.name === 'Orange' "/>
+    <img src="http://localhost/angular-http/img/mango.jpg" *ngIf="f.name === 'Mango' "/>
+
+    <img *ngIf="f.name !== 'Mango' && f.name !== 'Apple' && f.name !== 'Orange' " src="../../assets/fruit-background.jpg"/>
+
+
+    <span class="image-caption">
+        ID : {{f.id}}
+        Name : {{f.name}} <br/>
+        Price : {{f.price}}<br/>
+        <ng-template [ngIf]="f.stock > 0">Stock : {{f.stock}}</ng-template>
+        <ng-template [ngIf]="f.stock <= 0">SOLD OUT</ng-template>
+    </span><br/>
+
+    <div class="btn-control">
+      <button *ngIf="f.stock > 0" class="btn-buy" (click)="openDialogBuy(f.id,f.stock)" >Buy</button>
+
+      <button *ngIf="f.stock <= 0" class="btn-buy">SOLD OUT</button>
+
+      <button class="btn-delete" (click)="openDialog(f.id)">Delete</button>
+    </div>
+
+  </div>
+
+</div>
+
+
+<div id="dialog-container-buy" [hidden] ="true">
+
+  <div id="dialog-content-buy">
+    <h3>Buy a fruit</h3>
+
+    <div>
+      ID : {{buyId}} <br/>
+      Stock : {{buyStock}}
+    </div>
+
+
+    <form #formBuy = "ngForm">
+      <input type="number" [(ngModel)] = "toBuyStock" name="toBuyStock" id="toBuyStock" #toBuy="ngModel" required/><br/>
+      <span *ngIf="toBuy.dirty"><ng-template [ngIf] = "toBuyStock > buyStock || toBuyStock <=0">stock doesn't meet requirements</ng-template></span><br/>
+      <button (click)="submitBuy()" [disabled]="!formBuy.form.valid || (toBuyStock > buyStock) || toBuyStock <=0">Buy it</button>
+    </form>
+
+  </div>
+
+</div>
+
+<div id="dialog-container-update" [hidden]="true">
+  <div id="dialog-content-update">
+
+    <h3>Update</h3>
+
+    <div id="dialog-update-form">
+
+      <form #updateForm="ngForm">
+
+        <table>
+
+          <tr class="form-control">
+            <td>ID</td>
+            <td><input type="number" [(ngModel)]="updateId" name="updateId" id="updateId" readonly required/></td>
+          </tr>
+
+          <tr class="form-control">
+            <td>Stock</td>
+            <td><input type="number" [(ngModel)]="updateStock" name="updateStock" id="updateStock" required #updateField="ngModel"/></td>
+            <td *ngIf="updateField.dirty"><ng-template [ngIf]="updateStock <=0">Not a valid number</ng-template></td>
+          </tr>
+
+          <tr id="form-submit">
+            <td>
+              <button (click)="submitUpdate()" [disabled]="!updateForm.form.valid || updateStock <=0">Update Stock</button>
+            </td>
+          </tr>
+
+        </table>
+
+      </form>
+
+    </div>
+
+  </div>
+</div>
+
+<div id="dialog-container" [hidden]="true">
+
+  <div id="dialog-content">
+    <h3>Delete</h3>
+
+    <p id="confirmMessage"></p>
+
+    <button id="dialog-btn-delete" (click)="doDeleteDialog()">Delete</button>
+
+  </div>
+
+</div>

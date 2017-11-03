@@ -1,0 +1,39 @@
+
+
+<form #fruitForm ="ngForm">
+  <table>
+    <tr>
+      <td>
+        <label for="name">Fruit Name</label>
+      </td>
+      <td>
+        <input type="text" name="name" id="name" [(ngModel)]="name" required />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label for="price">Fruit Price</label>
+      </td>
+      <td>
+        <input type="number" id="price" name="price" [(ngModel)]="price" required />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label for="stock">Stock</label>
+      </td>
+      <td>
+        <input type="number" id="stock" name="stock" [(ngModel)]="stock" required/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button (click)="submitPurchase()" [disabled]="!fruitForm.form.valid">Submit Purchase</button>
+      </td>
+      <td><input type="reset" value="Clear Form"/></td>
+    </tr>
+  </table>
+
+</form>

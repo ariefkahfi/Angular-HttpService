@@ -1,0 +1,22 @@
+<div id="right-container" [hidden]="true">
+  <h3>Menubar</h3>
+
+  <div id="right-container-content">
+
+    <div id="show-component">
+
+      <div id="form-container">
+        <form-component (eventEmitter)="callGetDataFromListComponent()" ></form-component>
+      </div>
+
+      <div id="list-container">
+        <list-component ></list-component>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+

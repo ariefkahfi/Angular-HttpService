@@ -1,1 +1,323 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  margin : 0;
+  padding : 0;
+  min-width: 1200px;
+
+  background: url("./assets/fruit-background.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*init clearfix-class*/
+.clearfix:after{
+  content : "";
+  display: block;
+  clear: both;
+}
+/*init clearfix-class*/
+
+/*init navbar*/
+nav{
+  background-color: dodgerblue;
+  color : white;
+}
+nav h3 {
+  margin : 0;
+  font-size: 30px;
+  padding : 1%;
+  display: inline-block;
+}
+
+nav #nav-right-content{
+  float : right;
+  margin-right: 20px;
+  margin-top : 25px;
+}
+nav #nav-right-content a {
+  text-decoration: none;
+  color : white;
+  margin-right: 10px;
+  font-weight: bold;
+}
+/*init navbar*/
+
+/*init container*/
+#container{
+
+  /*margin-top : 10px;*/
+  padding: 1%;
+}
+/*init container*/
+
+/*init right-container*/
+#right-container {
+  width: 74%;
+  overflow: hidden;
+  background-color : white;
+  box-shadow: 3px 3px 4px rgba(0,0,0,0.4);
+}
+#right-container h3 {
+  margin : 0;
+  background-color : dodgerblue;
+  color : white;
+  font-size: 29px;
+  padding : 4px;
+}
+#right-container-content{
+  padding : 5px;
+  overflow : auto;
+}
+/*init right-container*/
+
+/*init show-component*/
+#show-component{
+
+}
+/*init show-component*/
+
+/*form component*/
+#fruit-stock{
+  margin-bottom : 10px;
+}
+#apple{
+  background-color : crimson;
+  padding : 5px;
+  color : white;
+  font-weight: bold;
+  border-radius: 5px;
+}
+#pineapple{
+  background-color : yellow;
+  padding : 5px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+#apple:hover{
+  background-color : yellowgreen;
+}
+#pineapple:hover{
+  color : white;
+  background-color: yellowgreen;
+}
+/*form component*/
+
+
+/*init left-container*/
+#list-fruit{
+  height: 0;
+  margin : 0;
+  padding-left: 10px;
+  transition : height 500ms;
+}
+#list-fruit li:hover{
+  background-color : dodgerblue;
+}
+#left-container{
+  background-color : white;
+  width : 25%;
+  float : left;
+  margin-right: 10px;
+  box-shadow: 3px 3px 4px rgba(0,0,0,0.4);
+}
+#left-container h3{
+  margin : 0;
+  background-color : dodgerblue;
+  font-size: 29px;
+  padding : 1%;
+  color : white;
+}
+#left-container-content{
+
+}
+#left-container-content a{
+  text-decoration: none;
+  color : black;
+  font-weight: bold;
+  display : block;
+  transition : background-color 500ms , color 500ms;
+  overflow: hidden;
+  padding : 1%;
+}
+#left-container-content a:hover{
+  background-color: crimson;
+  color : white;
+}
+#dropdown-fruit:hover #list-fruit{
+  height: 45px;
+}
+/*init left-container*/
+
+/*init footer
+footer {
+  padding : 1%;
+  margin : 10px;
+  background-color: dodgerblue;
+  text-align : center;
+  color : white;
+  font-weight: bold;
+}
+/*init footer*/
+
+/*init card-container*/
+#card-container{
+
+}
+/*init card-container*/
+
+/*init card*/
+.card .pin-update{
+  background-color : dodgerblue;
+  color : white;
+  font-weight: bolder;
+  display: inline-block;
+  padding : 4%;
+  position: absolute;
+  cursor: pointer;
+  top : 100px;
+  transition : transform 500ms;
+  right: 5px;
+}
+.card .pin-update:hover{
+  transform: rotate(90deg);
+}
+
+.card{
+  display : inline-block;
+  margin-bottom : 5px;
+  position: relative;
+  margin-right: 5px;
+  width: 180px;
+  box-shadow: 4px 4px 5px rgba(0,0,0,0.3);
+}
+.card img{
+  width: 100%;
+  background-color: dodgerblue;
+  height : 120px;
+}
+.card .image-caption{
+
+}
+.card .btn-control{
+  float : right;
+  margin-bottom : 5px;
+  margin-right: 5px;
+}
+.card button{
+  color : white;
+  font-weight: bold;
+}
+.card .btn-buy{
+  border : none;
+  cursor: pointer;
+  border-radius: 5px;
+  padding : 5px;
+  width : 50px;
+  background-color: #7FF000;
+}
+.card .btn-delete{
+  border : none;
+  border-radius: 5px;
+  padding : 5px;
+  cursor: pointer;
+  width : 80px;
+  background-color: crimson;
+}
+/*init card*/
+
+*{
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+/*init dialog-container-update*/
+#dialog-container-update{
+  position: fixed;
+  top :0 ;
+  left : 0;
+  height : 100%;
+  width: 100%;
+  background-color : rgba(0,0,0,0.2);
+}
+#dialog-container-update h3{
+  background-color : yellowgreen;
+}
+/*init dialog-container-update*/
+
+/*init dialog-content-update*/
+#dialog-content-update{
+  width : 50%;
+  margin : auto;
+  background-color : white;
+  margin-top : 80px;
+}
+
+/*init dialog-content-update*/
+
+/*init dialog-container*/
+#dialog-container{
+  position: fixed;
+  top :0 ;
+  left : 0;
+  height : 100%;
+  width: 100%;
+  background-color : rgba(0,0,0,0.2);
+}
+#dialog-container h3{
+  background-color: crimson;
+}
+/*init dialog-container*/
+
+/*init dialog-content*/
+#dialog-content{
+  width : 50%;
+  margin : auto;
+  text-align: center;
+  background-color : white;
+  margin-top : 80px;
+}
+#confirmMessage{
+  margin-left : 5px;
+  text-align: left;
+}
+#dialog-btn-delete{
+  margin-bottom : 5px;
+}
+/*init dialog-content*/
+
+
+/*init dialog-container-buy*/
+#dialog-container-buy{
+  position: fixed;
+  top :0 ;
+  left : 0;
+  height : 100%;
+  width: 100%;
+  background-color : rgba(0,0,0,0.2);
+}
+#dialog-container-buy h3{
+  background-color : darkorange;
+  color : white;
+}
+/*init dialog-container-buy*/
+
+/*init dialog-content-buy*/
+#dialog-content-buy{
+  background-color : white;
+  width: 50%;
+  margin : auto;
+  margin-top : 80px;
+}
+#dialog-content-buy div , form{
+  padding : 10px;
+}
+
+
+/*#dialog-content-buy form{*/
+  /*padding : 10px;*/
+/*}*/
+/*init dialog-content-buy*/
+
+
